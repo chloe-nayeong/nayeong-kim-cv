@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — Nayeong Kim</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #222222;
+    --sub: #555555;
+    --muted: #777777;
+    --line: #ded8cf;
+    --bg: #fbfaf8;
+    --paper: #ffffff;
+    --accent: #b9a760;
+    --accent-soft: #f3efe5;
+    --chip: #f1eee9;
+  }
+
+  body {
+    font-family: Arial, Helvetica, "Noto Sans", sans-serif;
+    color: var(--ink);
+    background: #ddd9d2;
+    padding: 28px 12px;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #ffffff 0%, #fffaf6 100%);
+    border-left: 6px solid var(--accent);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.16);
+    padding: 44px 44px 40px 42px;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    gap: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .role {
+    color: var(--accent);
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .contact {
+    text-align: right;
+    font-size: 11px;
+    color: var(--sub);
+    line-height: 1.65;
+    padding-top: 4px;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 34px;
+    margin-top: 26px;
+  }
+
+  .section { margin-bottom: 26px; }
+  .side .section { margin-bottom: 24px; }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--accent);
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .label::after {
+    content: "";
+    height: 1px;
+    background: var(--line);
+    flex: 1;
+  }
+
+  .profile {
+    font-size: 12px;
+    color: var(--sub);
+    line-height: 1.75;
+  }
+
+  .job {
+    padding-bottom: 21px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .job:last-child { border-bottom: 0; }
+
+  .job-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .job-title {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .period {
+    font-size: 10.5px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .company {
+    font-size: 11.3px;
+    color: var(--sub);
+    margin-bottom: 9px;
+  }
+
+  .team {
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-bottom: 11px;
+  }
+
+  .project {
+    margin: 12px 0 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project-title {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  ul { list-style: none; padding-left: 0; }
+  li {
+    font-size: 11.2px;
+    color: var(--sub);
+    margin-bottom: 4px;
+    padding-left: 14px;
+    position: relative;
+  }
+  li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 8px 0 10px;
+  }
+
+  .metric {
+    border: 1px solid #e6ddc6;
+    background: rgba(255,255,255,0.65);
+    border-radius: 8px;
+    padding: 9px 8px;
+    text-align: center;
+  }
+
+  .metric strong {
+    display: block;
+    color: var(--accent);
+    font-size: 20px;
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+
+  .metric span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .side {
+    padding-top: 2px;
+  }
+
+  .side-box {
+    background: rgba(243, 239, 229, 0.52);
+    border: 1px solid #ebe5dc;
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+    margin-bottom: 14px;
+  }
+
+  .edu-title {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .edu-sub, .edu-year {
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  .edu-year { color: var(--accent); margin-top: 2px; }
+  .edu + .edu { margin-top: 15px; }
+
+  .chip-group { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    background: var(--chip);
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 10.5px;
+    color: var(--ink);
+  }
+
+  .skill-subtitle {
+    font-size: 9.5px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 12px 0 7px;
+  }
+  .skill-subtitle:first-child { margin-top: 0; }
+
+  .lang-row, .cert-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    margin-bottom: 7px;
+  }
+  .pill {
+    background: var(--chip);
+    color: var(--muted);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .note {
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  @media print {
+    @page { size: A4; margin: 0; }
+    body { background: #fff; padding: 0; }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      box-shadow: none;
+      margin: 0;
+      border-left: 5px solid var(--accent);
+    }
+    .job, .project, .side-box { break-inside: avoid; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>Nayeong Kim</h1>
+        <div class="role">Senior UX/UI Designer<br>Design Lead</div>
+      </div>
+      <div class="contact">
+        nayeongahhi@gmail.com<br>
+        linkedin.com/in/nayeong-kim-designer<br>
+        070-1476-9556<br>
+      </div>
+    </header>
+
+    <div class="layout">
+      <div class="main">
+        <section class="section">
+          <div class="label">Profile</div>
+          <p class="profile">Research-driven UX/UI designer with 8+ years of experience across fintech, healthcare, and digital products. Specialized in complex financial flows, usability testing, information architecture, and scalable design systems.</p>
+        </section>
+
+        <section class="section">
+          <div class="label">Experience</div>
+
+          <article class="job">
+            <div class="job-head">
+              <div class="job-title">Senior UX/UI Designer / Design Lead</div>
+              <div class="period">Mar 2025 - Present</div>
+            </div>
+            <div class="company">PayPay Card Corporation · Tokyo</div>
+            <div class="team">UX/UI team of 25 · Cross-functional fintech projects</div>
+
+            <div class="project">
+              <div class="project-title">Balance Payment Ph1-3</div>
+              <div class="metrics">
+                <div class="metric"><strong>2.3x</strong><span>GMV growth in 4 months</span></div>
+                <div class="metric"><strong>¥48.4B</strong><span>Peak monthly GMV</span></div>
+                <div class="metric"><strong>30%</strong><span>Overdue payments covered</span></div>
+              </div>
+              <ul>
+                <li>Led UX/UI for a new repayment feature enabling 6.4M+ users to pay card bills with PayPay points and wallet balance.</li>
+                <li>Designed phased UX for overdue, pre-confirmed, and unconfirmed billing states with clear eligibility and error handling.</li>
+                <li>Conducted 2 rounds of moderated usability tests and improved entry-point discoverability, terminology, and payment-state clarity.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-title">Design System / Research / UX Quality</div>
+              <ul>
+                <li>Created guidelines for tooltip, balloon, toast, skeleton, disclaimer, and error-related components.</li>
+                <li>Supported Design UAT, review workshops, research operations, and Figma workflow improvements.</li>
+                <li>Aligned PdMs, QA, engineers, and designers by visualizing complex financial user flows.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-head">
+              <div class="job-title">UX/UI Designer</div>
+              <div class="period">Jan 2023 - Feb 2025</div>
+            </div>
+            <div class="company">Rakuten Payment, Inc. · Tokyo</div>
+            <div class="team">UX/UI team of 20 · Cross-functional fintech projects</div>
+
+            <div class="project">
+              <div class="project-title">Point Setting UX Redesign</div>
+              <div class="metrics">
+                <div class="metric"><strong>75%</strong><span>CS complaints reduced</span></div>
+                <div class="metric"><strong>100%</strong><span>1-star reviews resolved</span></div>
+                <div class="metric"><strong>+27%</strong><span>QR payment rate</span></div>
+              </div>
+              <ul>
+                <li>Redesigned the point-setting experience on Rakuten Pay Home after analyzing user behavior, CS logs, and usability issues.</li>
+                <li>Conducted competitive research, ProtoPie prototyping, and user testing across iOS and Android.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-title">Direct Home Onboarding</div>
+              <div class="metrics">
+                <div class="metric"><strong>+18%</strong><span>Onboarding completion</span></div>
+                <div class="metric"><strong>+12%</strong><span>New users</span></div>
+                <div class="metric"><strong>Fraud Risk ↓</strong><span></span></div>
+              </div>
+              <ul>
+                <li>Simplified onboarding by allowing users to reach Home without mandatory payment registration.</li>
+                <li>Validated Quick Mode through two rounds of user testing for both new and existing users.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-title">Other Fintech Projects</div>
+              <ul>
+                <li>Worked on Digital Payroll, eKYC onboarding, Bank Pay, R-Card Microservices, Invoice Payment, Rakuten Check, and partner app designs.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-head">
+              <div class="job-title">UX/UI Designer</div>
+              <div class="period">Oct 2021 - Dec 2022</div>
+            </div>
+            <div class="company">E-PARK Healthcare App · Tokyo</div>
+            <div class="project">
+              <div class="project-title">Digital Patient Card Full-Screen Redesign</div>
+              <div class="metrics">
+                <div class="metric"><strong>50%+</strong><span>Patient card registrations</span></div>
+                <div class="metric"><strong>32→78%</strong><span>Hospital info page CVR</span></div>
+                <div class="metric"><strong>IA Improved</strong><span></span></div>
+              </div>
+              <ul>
+                <li>Redesigned the full app experience through user behavior analysis, drop-off analysis, and competitor research.</li>
+                <li>Rebuilt information architecture and created a scalable design system for consistent healthcare UX.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-head">
+              <div class="job-title">Product Designer</div>
+              <div class="period">Dec 2020 - Oct 2021</div>
+            </div>
+            <div class="company">SDP Co., Ltd. · Tokyo</div>
+            <ul>
+              <li>Designed responsive web and mobile interfaces across digital product projects.</li>
+              <li>Collaborated with developers on front-end implementation using HTML and CSS.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-head">
+              <div class="job-title">Branding Designer / Business Planning Director</div>
+              <div class="period">Mar 2016 - Nov 2020</div>
+            </div>
+            <div class="company">Mechanic Korea · Seoul</div>
+            <ul>
+              <li>Led branding, web design, and digital campaigns for 10+ clients across corporate, commerce, and entertainment projects.</li>
+              <li>Designed UI, websites, brand identity systems, promotional assets, and experiential campaign materials.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+
+      <aside class="side">
+        <section class="section">
+          <div class="label">Education</div>
+          <div class="side-box edu">
+            <div class="edu-title">M.Eng., Design Engineering</div>
+            <div class="edu-sub">Hosei University, Japan</div>
+            <div class="edu-year">2024 - 2026</div>
+          </div>
+          <div class="side-box edu">
+            <div class="edu-title">B.A., Entertainment Management</div>
+            <div class="edu-sub">Dong-A Institute of Media and Arts, Korea</div>
+            <div class="edu-year">2012 - 2016</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="label">Skills</div>
+          <div class="side-box">
+            <div class="skill-subtitle">Design</div>
+            <div class="chip-group">
+              <span class="chip">Figma</span><span class="chip">ProtoPie</span><span class="chip">Adobe XD</span><span class="chip">Animate</span><span class="chip">Photoshop</span><span class="chip">Illustrator</span>
+            </div>
+            <div class="skill-subtitle">UX Methods</div>
+            <div class="chip-group">
+              <span class="chip">User Research</span><span class="chip">Usability Test</span><span class="chip">A/B Testing</span><span class="chip">Design System</span><span class="chip">Design UAT</span><span class="chip">Workshop</span><span class="chip">AI-assisted UX</span>
+            </div>
+            <div class="skill-subtitle">Development</div>
+            <div class="chip-group">
+              <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="label">Languages</div>
+          <div class="side-box">
+            <div class="lang-row"><span>Korean</span><span class="pill">Native</span></div>
+            <div class="lang-row"><span>Japanese</span><span class="pill">Business Advanced</span></div>
+            <div class="lang-row"><span>English</span><span class="pill">Intermediate</span></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="label">Certifications</div>
+          <div class="side-box">
+            <div class="cert-row"><span>JLPT N1</span><span class="pill">2022</span></div>
+            <div class="cert-row"><span>Information Processing Engineer</span><span class="pill">2020</span></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="label">Focus</div>
+          <div class="side-box note">
+            Complex financial UX · information architecture · usability testing · design systems · cross-functional alignment
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
